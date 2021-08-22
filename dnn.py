@@ -41,17 +41,18 @@ class CNNModel(nn.Module):
     def __init__(self):
         super(CNNModel, self).__init__()
 
-        self.conv1 = nn.Conv2d(1, 6, 5)
+        # Convolution 1
+        self.conv1 = nn.Conv2d(1, 16, 5)
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
-        self.fc1 = nn.Linear(16 * 4 * 4, 120)
+        self.conv2 = nn.Conv2d(16, 32, 5)
+        self.fc1 = nn.Linear(32 * 4 * 4, 120)
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, 10)
 
     def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))  # -> n, 6, 14, 14
         x = self.pool(F.relu(self.conv2(x)))  # -> n, 16, 5, 5
-        x = x.view(x.size(0), 16 * 4 * 4)  # -> n, 400
+        x = x.view(x.size(0), 32 * 4 * 4)  # -> n, 400
         x = F.relu(self.fc1(x))  # -> n, 120
         x = F.relu(self.fc2(x))  # -> n, 84
         x = self.fc3(x)  # -> n, 10
@@ -59,7 +60,7 @@ class CNNModel(nn.Module):
 
 
 # batch_size, epoch and iteration
-batch_size = 30 # 100
+batch_size = 25 # 100
 print("Batch size: " + str(batch_size))
 n_iters = 50000
 num_epochs = n_iters / (len(features_train) / batch_size)
@@ -106,7 +107,7 @@ for epoch in range(num_epochs):
         labels = labels.to(device)
 
 
-        train = Variable(images.view(30, 1, 28, 28)) # 100
+        train = Variable(images.view(25, 1, 28, 28)) # 100
         labels = Variable(labels)
 
         # Clear gradients
@@ -135,7 +136,7 @@ for epoch in range(num_epochs):
                 images = images.to(device)
                 labels = labels.to(device)
 
-                test = Variable(images.view(30, 1, 28, 28))
+                test = Variable(images.view(25, 1, 28, 28))
 
                 # Forward propagation
                 outputs = model(test)
