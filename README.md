@@ -1,5 +1,5 @@
 # MNIST-DNN-kaggle
-Kaggle competition based on MNIST dataset. My place at competition: #522
+Kaggle competition based on MNIST dataset. My place at competition: #481
 
 https://www.kaggle.com/c/digit-recognizer
 
