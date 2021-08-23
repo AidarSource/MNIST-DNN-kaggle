@@ -4,13 +4,14 @@ Kaggle competition based on MNIST dataset. My place at competition: #522
 https://www.kaggle.com/c/digit-recognizer
 
 # Score:
-Iteration: 49000  Loss: 9.862562728812918e-05  Accuracy: 99.0 %
+Iteration: 49500  Loss: 3.0040672527320567e-07  Accuracy: 99.17857360839844 %
 
 Kaggle validation: 
-Your submission scored 0.99007
+Your submission scored 0.99060
 
 
-![Screenshot](https://user-images.githubusercontent.com/34319725/130353656-d7a63290-3639-415b-90e7-b7bce8c60604.png)
+![Screenshot](https://user-images.githubusercontent.com/34319725/130451132-76275019-18f2-421a-96ae-b9498f08be33.png)
+
 
 
 ## Installation
